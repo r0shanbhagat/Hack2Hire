@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/colorOrange</color>
+    <color name="colorPrimaryDark">@color/colorTransparentOrange</color>
+    <color name="colorAccent">@color/colorOrange</color>
+
+    <color name="colorDodgerBlue">#147BEA</color>
+    <color name="colorCadetBlue">#3C516E</color>
+    <color name="colorCyan">#0CD0E3</color>
+    <color name="colorTransparentCadetBlue">#FA3C516E</color>
+    <color name="colorTransparentOrange">#FAFF9800</color>
+
+    <color name="colorFontGreyDark">#333333</color>
+    <color name="colorFontGreyLight">#666666</color>
+
+    <color name="colorButtonBackground">@color/colorPrimaryDark</color>
+    <color name="colorTabIndicator">@color/colorAmber</color>
+    <color name="colorImageBorder">#34c9c4c4</color>
+    <color name="appStatusBarColor">@color/colorPrimaryDark</color>
+    <color name="colorBackground">#EFEFEF</color>
+    <color name="window_background_color">#EDEDED</color>
+    <color name="colorWhiteDull">#E6E6E6</color>
+    <color name="colorLine">#dfdfdf</color>
+    <color name="colorLightTransparent">#16000000</color>
+    <color name="colorDarkTransParent">#24000000</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorRed">#f30a31</color>
+    <color name="colorPink">#FF4081</color>
+    <color name="colorPurple">#9C27B0</color>
+    <color name="colorDeepBlue">#7C4DFF</color>
+    <color name="colorIndigo">#303f9f</color>
+    <color name="colorIndigoDark">#293392</color>
+    <color name="colorBlue">#448AFF</color>
+    <color name="colorLightBlue">#03A9F4</color>
+    <color name="colorTeal">#009688</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="colorLightGreen">#8BC34A</color>
+    <color name="colorLime">#CDDC39</color>
+    <color name="colorYellow">#FFEB3B</color>
+    <color name="colorAmber">#FFC107</color>
+    <color name="colorOrange">#FF9800</color>
+    <color name="colorDeepOrange">#FF5722</color>
+    <color name="colorGold">#fdc32c</color>
+    <color name="colorBrown">#795548</color>
+    <color name="colorGray">#9E9E9E</color>
+    <color name="colorBlueGray">#607D8B</color>
+    <color name="colorDarkGray">#696969</color>
+    <color name="colorText">#1d1d1d</color>
+    <color name="colorCalSlatty">#f1f2f9</color>
+    <color name="darker_gray">#404040</color>
+
+
+    <color name="trans_black_75">#BF000000</color>
+    <color name="trans_black_87">#DF000000</color>
+    <color name="trans_black_50">#80000000</color>
+    <color name="trans_black_70">#50000000</color>
+    <color name="trans_black_25">#40000000</color>
+    <color name="trans_black_10">#1A000000</color>
+    <color name="trans_black_5">#0D000000</color>
+    <color name="trans_white_75">#BFFFFFFF</color>
+    <color name="trans_white_70">#AFFFFFFF</color>
+    <color name="trans_white_50">#80FFFFFF</color>
+    <color name="trans_black_54">#8A000000</color>
+    <color name="trans_white_87">#DFFFFFFF</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="white_screen_text_color">#363A3C</color>
+    <color name="white_screen_text_colo">#f23d18</color>
+    <color name="white_screen_text_col">#f79712</color>
+    <color name="item_light_gray">#f7f7f7</color>
+
+    <color name="trans_white_30">#48FFFFFF</color>
+    <color name="trans_white_40">#64FFFFFF</color>
+
+    <color name="toolbar_shadow_start">#00ffffff</color>
+    <color name="toolbar_shadow_center">#4AFFCB05</color>
+    <color name="toolbar_shadow_end">#9FFFCB05</color>
+
+    <color name="divider_color">#32979797</color>
+    <color name="menu_divider_txt_color">#40000000</color>
+    <color name="menu_divider_line_color">#20000000</color>
+    <color name="thickgray">#626262</color>
+    <color name="colorNavigationDrawerBg">#1f1f23</color>
+
+
+</resources>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:et="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.example.myapplication.activities.useractivity.login.LoginViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imvAppBG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_margin_normal"
+                android:layout_marginTop="@dimen/dimen_fifty"
+                android:layout_marginEnd="@dimen/common_margin_normal"
+                android:background="@drawable/ic_login_logo"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{(view)->loginViewModel.onViewClicks(view)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rlMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mid_large_margin_padding"
+                android:layout_marginTop="@dimen/dimen_twenty"
+                android:layout_marginEnd="@dimen/mid_large_margin_padding"
+                android:background="@drawable/et_gray_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imvAppBG">
+
+                <ImageView
+                    android:id="@+id/imMobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/normal_margin_padding"
+                    android:layout_marginTop="@dimen/common_margin_normal"
+                    android:layout_marginBottom="@dimen/common_margin_normal"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/etMobileNumber"
+                    style="@style/TextNormalRegularBlack"
+                    android:layout_width="@dimen/dimen_zero"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_margin_normal"
+                    android:layout_marginEnd="@dimen/common_margin_normal"
+                    android:layout_marginBottom="@dimen/common_margin_normal"
+                    android:layout_toEndOf="@+id/imMobile"
+                    android:background="@null"
+                    android:hint="@string/mobile_number"
+                    android:inputType="phone"
+                    android:padding="@dimen/small_margin_padding"
+                    android:paddingStart="@dimen/small_margin_padding"
+                    android:paddingEnd="@dimen/small_margin_padding"
+                    android:text="@={loginViewModel.mobileNumber}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textViewCountryCode"
+                    app:layout_constraintTop_toTopOf="parent"
+                     />
+
+
+                <TextView
+                    android:id="@+id/textViewCountryCode"
+                    style="@style/TextNormalRegularGrey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_margin_normal"
+                    android:layout_marginTop="@dimen/common_margin_normal"
+                    android:layout_marginBottom="@dimen/common_margin_normal"
+                    android:text="+91"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imMobile"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="+62" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rlPassword"
+                android:layout_width="@dimen/dimen_zero"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mid_large_margin_padding"
+                android:layout_marginTop="@dimen/mid_large_margin_padding"
+                android:layout_marginEnd="@dimen/mid_large_margin_padding"
+                android:background="@drawable/et_gray_border"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rlMobile">
+
+                <ImageView
+                    android:id="@+id/imPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/normal_margin_padding"
+                    android:layout_marginTop="@dimen/common_margin_normal"
+                    android:layout_marginBottom="@dimen/common_margin_normal"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    style="@style/TextNormalRegularBlack"
+                    android:layout_width="@dimen/dimen_zero"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_margin_normal"
+                    android:layout_marginTop="@dimen/common_margin_normal"
+                    android:layout_marginEnd="@dimen/common_margin_normal"
+                    android:layout_marginBottom="@dimen/common_margin_normal"
+                    android:layout_toStartOf="@+id/imViewPassword"
+                    android:layout_toEndOf="@+id/imPassword"
+                    android:background="@null"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/small_margin_padding"
+                    android:paddingStart="@dimen/small_margin_padding"
+                    android:paddingEnd="@dimen/small_margin_padding"
+                    android:text="@={loginViewModel.userPassword}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imViewPassword"
+                    app:layout_constraintStart_toEndOf="@+id/imPassword"
+                    app:layout_constraintTop_toTopOf="parent"
+                   />
+
+
+                <ImageView
+                    android:id="@+id/imViewPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="@dimen/extra_small_margin_padding"
+                    android:layout_marginTop="@dimen/common_margin_normal"
+                    android:layout_marginEnd="@dimen/common_margin_normal"
+                    android:layout_marginBottom="@dimen/common_margin_normal"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="@{(view)->loginViewModel.onViewClicks(view)}"
+                    android:padding="@dimen/common_margin_normal"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <Button
+                android:id="@+id/btnLogin"
+                style="@style/YellowBtnTheme"
+                android:layout_width="@dimen/dimen_zero"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mid_large_margin_padding"
+                android:layout_marginTop="@dimen/normal_margin_padding"
+                android:layout_marginEnd="@dimen/mid_large_margin_padding"
+                android:onClick="@{(view)->loginViewModel.onViewClicks(view)}"
+                android:text="@string/login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword" />
+
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                style="@style/TextNormalRegularBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin_padding"
+                android:layout_marginEnd="@dimen/large_margin_padding"
+                android:onClick="@{(view)->loginViewModel.onViewClicks(view)}"
+                android:padding="@dimen/common_margin_normal"
+                android:text="@string/forgot_password_title"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rlPassword" />
+
+
+            <TextView
+                android:id="@+id/tvSignUp"
+                style="@style/TextNormalRegularBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_margin_normal"
+                android:onClick="@{(view)->loginViewModel.onViewClicks(view)}"
+                android:text="@string/have_no_account"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvSignUp2"
+                app:layout_constraintEnd_toStartOf="@+id/tvSignUp2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSignUp2"
+                style="@style/TextNormalRegularPurple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin_padding"
+                android:layout_marginEnd="@dimen/common_margin_normal"
+                android:layout_marginBottom="@dimen/common_margin_normal"
+                android:onClick="@{(view)->loginViewModel.onViewClicks(view)}"
+                android:padding="@dimen/common_margin_normal"
+                android:text="@string/sign_up_here"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tvSignUp"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

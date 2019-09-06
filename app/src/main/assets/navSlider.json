@@ -1,0 +1,87 @@
+[
+  {
+    "name": "Home",
+    "slug": "home",
+    "url": "bikedekho://home",
+    "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
+  },
+  {
+    "name": "Category",
+    "slug": "divider"
+  },
+  {
+    "name": "Most Popular",
+    "slug": "bikes",
+    "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png",
+    "subMenus": [
+      {
+        "name": "Popular Bhujiya1",
+        "slug": "all_bikes",
+        "url": "https://www.bikedekho.com/new-bikes"
+      },
+      {
+        "name": "Popular Bhujiya2",
+        "slug": "upcoming_bikes",
+        "url": "https://www.bikedekho.com/upcoming-bikes"
+      },
+      {
+        "name": "Popular Bhujiya3",
+        "slug": "latest_bikes",
+        "url": "https://www.bikedekho.com/latest-bikes"
+      },
+      {
+        "name": "Popular Bhujiya4",
+        "slug": "premium_bikes",
+        "url": "bikedekho://premium-bike"
+      }
+    ]
+  },
+  {
+    "name": "Discount",
+    "slug": "on_road_price",
+    "url": "bikedekho://price-quote",
+    "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
+  },
+  {
+    "name": "Offers",
+    "slug": "dealers",
+    "url": "bikedekho://dealers",
+    "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
+  },
+  {
+    "name": "News",
+    "slug": "news",
+    "url": "https://www.bikedekho.com/news",
+    "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
+  },
+  {
+    "name": "Logout",
+    "slug": "logout",
+    "url": "bikedekho://logout",
+    "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
+  },
+  {
+    "name": "Footer",
+    "slug": "footer",
+    "footerItems": [
+      {
+        "name": "share",
+        "slug": "share",
+        "url": "bikedekho://share",
+        "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
+      },
+      {
+        "name": "feedback",
+        "slug": "feedback",
+        "url": "bikedekho://feedback",
+        "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
+      },
+      {
+        "name": "rate us",
+        "slug": "rate",
+        "url": "bikedekho://rate",
+        "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="error_msg">Oops! Something went wrong. Possibly with your Network connection. Please try again.</string>
+    <string name="no_internet_msg">This feature required internet connection. Please check your internet setting and try again.</string>
+    <string name="no_internet_title">No internet</string>
+
+    <string name="mobile_number">Mobile Number</string>
+    <string name="login">Login</string>
+    <string name="have_no_account">Don\'t have an account?</string>
+    <string name="sign_up_here">Sign Up here</string>
+    <string name="forgot_password_title">Forgot Password?</string>
+    <string name="password">Password</string>
+    <string name="please_enter_password">Please enter password</string>
+    <string name="please_provide_valid_mobile">Please provide a valid mobile number</string>
+    <string name="title_no_connection">No Internet!</string>
+    <string name="no_connection_msg">Please check your internet connection and try again later.</string>
+    <string name="title_retry">Retry</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+
+</resources>

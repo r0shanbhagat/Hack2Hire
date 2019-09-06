@@ -1,0 +1,115 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(rootProject.file("app/keystore/keystore.properties")))
+    signingConfigs {
+        releaseProdConfig {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility "${javaVersion}"
+        targetCompatibility "${javaVersion}"
+    }
+    dataBinding {
+        enabled true
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        uat {
+            buildConfigField 'String', 'BASE_URL', '"http://18.136.119.31/dfm-dev/public/api/v1/"'
+//            signingConfig signingConfigs.releaseProdConfig
+        }
+        prod {
+            buildConfigField 'String', 'BASE_URL', '"https://www.simplifiedcoding.net/demos/"'
+            //    signingConfig signingConfigs.releaseProdConfig
+        }
+    }
+
+    buildTypes {
+        debug {
+            manifestPlaceholders = [allowBackup: "true"]
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "LOG", "true"
+
+        }
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [allowBackup: "false"]
+            buildConfigField "boolean", "LOG", "false"
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def formattedDate = new Date().format('yyyy-MM-dd')
+            def fullName = outputFileName
+            def projectName = fullName.substring(0, fullName.indexOf('-'))
+            outputFileName = "${variant.name}-${variant.versionName}-${formattedDate}.apk"
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "8192M"
+        preDexLibraries true
+    }
+    lintOptions {
+        abortOnError false
+        quiet true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:${rootProject.supportLibVersion}"
+    //implementation "androidx.design:design:${rootProject.ext.supportLibVersion}"
+    implementation "androidx.cardview:cardview:${rootProject.ext.supportLibVersion}"
+    implementation "androidx.recyclerview:recyclerview:${rootProject.ext.supportLibVersion}"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "com.google.android.material:material:${rootProject.ext.material}"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:${rootProject.ext.supportLibVersion}"
+
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.retrofitVersion}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxAndroid}"
+
+    implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.ext.glideVersion"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifeCycleVersion"
+    implementation "androidx.multidex:multidex:${rootProject.ext.multidexVersion}"
+    implementation 'com.ethanhua:skeleton:1.1.1'
+    implementation 'io.supercharge:shimmerlayout:2.1.0'
+    implementation "org.parceler:parceler-api:${rootProject.ext.parcelerVersion}"
+    annotationProcessor "org.parceler:parceler:${rootProject.ext.parcelerVersion}"
+
+    //navigation component
+    implementation 'androidx.navigation:navigation-fragment:2.0.0'
+    implementation 'androidx.navigation:navigation-ui:2.0.0'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+}

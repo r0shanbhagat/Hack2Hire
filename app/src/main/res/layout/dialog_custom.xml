@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="customDialogModel"
+            type="com.example.myapplication.dialog.beans.CustomDialogModel" />
+
+        <variable
+            name="customDialog"
+            type="com.example.myapplication.dialog.CustomDialog" />
+    </data>
+
+    <LinearLayout style="@style/DialogParentLayout">
+
+        <TextView
+            style="@style/DialogHeadingTextView"
+            android:text="@{customDialogModel.dialogTitle}"
+            android:visibility="@{TextUtils.isEmpty(customDialogModel.dialogTitle)?View.GONE : View.VISIBLE}"
+            tools:text="Alert"
+            tools:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivCross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:contentDescription="@null"
+            android:onClick="@{(v)->customDialog.onClick(v)}"
+            android:visibility="@{customDialogModel.isCloseDialog?View.VISIBLE:View.GONE}" />
+
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen_ten"
+            android:layout_marginBottom="@dimen/dimen_fifteen"
+            android:contentDescription="@null"
+            android:visibility="@{TextUtils.isEmpty(String.valueOf(customDialogModel.imageUrl))? View.GONE : View.VISIBLE}"
+            app:imageUrl="@{customDialogModel.imageUrl}" />
+
+        <TextView
+            style="@style/DialogMessageTextView"
+            android:gravity="center_horizontal"
+            android:text="@{customDialogModel.messageText}"
+            tools:text="Are you sure you want to delete this item?" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_ten"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tvCancel"
+                style="@style/DialogButtonCancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{(v)->customDialog.onClick(v)}"
+                android:text="@{customDialogModel.cancelText}"
+                android:visibility="@{TextUtils.isEmpty(customDialogModel.cancelText)?View.GONE : View.VISIBLE}"
+                tools:text="Cancel" />
+
+            <TextView
+                android:id="@+id/tvOk"
+                style="@style/ButtonBackground.Ripple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{(v)->customDialog.onClick(v)}"
+                android:text="@{customDialogModel.okText}"
+                android:visibility="@{TextUtils.isEmpty(customDialogModel.okText)?View.GONE : View.VISIBLE}"
+                tools:text="Submit" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
