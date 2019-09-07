@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="bannerDialog"
+            type="com.hack.easyhomeloan.activities.home.dialog.FullScreenBannerDialog" />
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_two">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="480dp">
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true" />
+
+            <ImageButton
+                android:id="@+id/left_nav"
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:onClick="@{(v)->bannerDialog.onClick(v)}"
+                android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/right_nav"
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:onClick="@{(v)->bannerDialog.onClick(v)}"
+                android:src="@drawable/ic_keyboard_arrow_right_black" />
+
+
+            <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="bottom"
+                android:padding="10dip"
+                app:centered="true"
+                app:fillColor="#df0623"
+                app:pageColor="@color/colorBlack"
+                app:snap="false" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="@{(v)->bannerDialog.onClick(v)}"
+            android:paddingStart="@dimen/dimen_ten"
+            android:paddingEnd="0dp"
+            android:paddingBottom="@dimen/dimen_ten">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_five"
+                android:background="@color/trans_black_87"
+                android:padding="@dimen/dimen_five"
+                android:text="@string/close"
+                android:textColor="@color/colorWhite" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</layout>

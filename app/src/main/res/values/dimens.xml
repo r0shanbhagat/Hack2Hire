@@ -115,5 +115,10 @@
     <dimen name="single_large_margin_padding">40dp</dimen>
     <dimen name="do_extra_large_margin_padding">50dp</dimen>
     <dimen name="divider_height">1dp</dimen>
+    <dimen name="user_desc_icon">35dp</dimen>
+    <dimen name="large_text_22">22sp</dimen>
+    <dimen name="dimen_logo_height">180dp</dimen>
+    <dimen name="popup_width">200dp</dimen>
+    <dimen name="popup_height">200dp</dimen>
 
 </resources>

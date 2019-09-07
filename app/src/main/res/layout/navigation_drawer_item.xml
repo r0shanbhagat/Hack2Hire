@@ -9,11 +9,11 @@
 
         <import type="android.text.TextUtils" />
 
-        <import type="com.example.myapplication.utilities.AppUtils" />
+        <import type="com.hack.easyhomeloan.utilities.AppUtils" />
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.base.navigation.menubean.NavigationMenuModel" />
+            type="com.hack.easyhomeloan.base.navigation.menubean.NavigationMenuModel" />
 
     </data>
 

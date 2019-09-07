@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!--Themes & Styles
     1.Base application theme.
     2.Toolbar Style
@@ -250,7 +250,7 @@
     </style>
 
     <style name="SplashTheme" parent="AppTheme.Base">
-        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:windowBackground">@color/colorBlack</item>
     </style>
 
     <style name="TextNormalRegularBlack">

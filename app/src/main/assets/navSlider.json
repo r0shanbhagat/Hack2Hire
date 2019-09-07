@@ -2,7 +2,7 @@
   {
     "name": "Home",
     "slug": "home",
-    "url": "bikedekho://home",
+    "url": "",
     "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
   },
   {
@@ -10,42 +10,42 @@
     "slug": "divider"
   },
   {
-    "name": "Most Popular",
-    "slug": "bikes",
-    "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png",
+    "name": "Most Popular Flats",
+    "slug": "",
+    "iconUrl": "",
     "subMenus": [
       {
-        "name": "Popular Bhujiya1",
-        "slug": "all_bikes",
+        "name": "Villa",
+        "slug": "Villa",
         "url": "https://www.bikedekho.com/new-bikes"
       },
       {
-        "name": "Popular Bhujiya2",
+        "name": "Independent House",
         "slug": "upcoming_bikes",
         "url": "https://www.bikedekho.com/upcoming-bikes"
       },
       {
-        "name": "Popular Bhujiya3",
+        "name": "2BHK Flats",
         "slug": "latest_bikes",
         "url": "https://www.bikedekho.com/latest-bikes"
       },
       {
-        "name": "Popular Bhujiya4",
+        "name": "3BHK Flats",
         "slug": "premium_bikes",
         "url": "bikedekho://premium-bike"
       }
     ]
   },
   {
-    "name": "Discount",
-    "slug": "on_road_price",
+    "name": "Offers on Flats",
+    "slug": "offer",
     "url": "bikedekho://price-quote",
     "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
   },
   {
-    "name": "Offers",
+    "name": "Dealers & Brokers",
     "slug": "dealers",
-    "url": "bikedekho://dealers",
+    "url": "dealers",
     "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
   },
   {
@@ -57,31 +57,7 @@
   {
     "name": "Logout",
     "slug": "logout",
-    "url": "bikedekho://logout",
+    "url": "hackhire://logout",
     "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
-  },
-  {
-    "name": "Footer",
-    "slug": "footer",
-    "footerItems": [
-      {
-        "name": "share",
-        "slug": "share",
-        "url": "bikedekho://share",
-        "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
-      },
-      {
-        "name": "feedback",
-        "slug": "feedback",
-        "url": "bikedekho://feedback",
-        "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
-      },
-      {
-        "name": "rate us",
-        "slug": "rate",
-        "url": "bikedekho://rate",
-        "iconUrl": "https://pdfimages.wondershare.com/images/menu_icon09.png"
-      }
-    ]
   }
 ]

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Easy HomeLoan</string>
 
     <string name="error_msg">Oops! Something went wrong. Possibly with your Network connection. Please try again.</string>
     <string name="no_internet_msg">This feature required internet connection. Please check your internet setting and try again.</string>
@@ -12,11 +12,48 @@
     <string name="forgot_password_title">Forgot Password?</string>
     <string name="password">Password</string>
     <string name="please_enter_password">Please enter password</string>
-    <string name="please_provide_valid_mobile">Please provide a valid mobile number</string>
+    <string name="empty_user_id">Please enter UserId.</string>
+    <string name="userId_length_invalid">UserId length must be greater than 10 digits.</string>
     <string name="title_no_connection">No Internet!</string>
+
     <string name="no_connection_msg">Please check your internet connection and try again later.</string>
     <string name="title_retry">Retry</string>
     <string name="navigation_drawer_open">open</string>
     <string name="navigation_drawer_close">close</string>
+    <string name="close">close</string>
+    <string name="customer_id">Customer ID</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="gender">Gender</string>
+    <string name="address">Address</string>
+    <string name="userName">UserId</string>
+    <string name="userId">User Id</string>
+    <string name="btnLogin">Check Eligiblity</string>
+
+
+    <string name="item_1">Sai Krupa Developers</string>
+    <string name="item_2">Salarpuria Sattva</string>
+    <string name="item_3">Phoenix</string>
+    <string name="item_4">Divya Sri Hholdings</string>
+    <string name="cancel">Cancel</string>
+    <string name="payment">Pay</string>
+    <string name="shipping_title">Rate Of intrest:</string>
+    <string name="total_title">Total Price:</string>
+    <string name="currency">₹</string>
+    <string name="product_id">Home ID:</string>
+    <string name="cart_list">Available Homes For You</string>
+
+
+    <string name="easy_home_loan">Easy Home Loan</string>
+    <string name="title_1">Home Loan</string>
+    <string name="title_2">Car Loan</string>
+    <string name="title_3">Personal Loan</string>
+    <string name="title_4">Education Loan</string>
+
+    <string name="text_1">EMI starting Rs 762/L*.Home loans with affordable EMI &amp; longer repayment tenure.*T&amp;C Apply. No Prepayment Charges. Low Interest Rate. Limited Period Offer. Lower Processing Fees. Types: Home Loan For Women, Balance Transfer Loan, Top Up Loan.</string>
+    <string name="text_2">Best Interest Rates, minimal paperwork, flexible repayment options. Apply Now! Quick Approval. Flexible Loan Option. Instant Disbursement. Easy Documentation. Get e-Approved instantly. Flexible Repayment Tenure. Lower EMI. New Car Loan. Used Car Loan.</string>
+    <string name="text_3">Apply Personal Loan Online in Hyderabad, Get Instant Approval @ 10.99% ROI | Min 20K Sal. Get attractive cashback offers, Quick Disbursement, Minimal documentation. No pre closure charges. Quick Disbursement. Best personal loan ROI. Hassle Free Documentation.</string>
+    <string name="text_4">For Studying in India, USA, Abroad 100%Finance, Fast Door Step Service. Dedicated Education Loan. Live Chat Available. Apply For A Loan. Provider. Destinations: Study in USA, Study in Germany, Study in Canada, Study Australia.</string>
+    <string name="click_here_for_more_details"><u>Click here for More Details</u></string>
+
 
 </resources>

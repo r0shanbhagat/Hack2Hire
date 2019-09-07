@@ -11,11 +11,11 @@
 
         <variable
             name="customDialogModel"
-            type="com.example.myapplication.dialog.beans.CustomDialogModel" />
+            type="com.hack.easyhomeloan.dialog.beans.CustomDialogModel" />
 
         <variable
             name="customDialog"
-            type="com.example.myapplication.dialog.CustomDialog" />
+            type="com.hack.easyhomeloan.dialog.CustomDialog" />
     </data>
 
     <LinearLayout style="@style/DialogParentLayout">

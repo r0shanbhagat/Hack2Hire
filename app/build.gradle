@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.example.myapplication"
+        applicationId "com.hack.easyhomeloan"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -81,7 +81,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.appcompat:appcompat:${rootProject.supportLibVersion}"
-    //implementation "androidx.design:design:${rootProject.ext.supportLibVersion}"
     implementation "androidx.cardview:cardview:${rootProject.ext.supportLibVersion}"
     implementation "androidx.recyclerview:recyclerview:${rootProject.ext.supportLibVersion}"
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -101,11 +100,13 @@ dependencies {
     implementation 'com.ethanhua:skeleton:1.1.1'
     implementation 'io.supercharge:shimmerlayout:2.1.0'
     implementation "org.parceler:parceler-api:${rootProject.ext.parcelerVersion}"
-    annotationProcessor "org.parceler:parceler:${rootProject.ext.parcelerVersion}"
+
 
     //navigation component
-    implementation 'androidx.navigation:navigation-fragment:2.0.0'
-    implementation 'androidx.navigation:navigation-ui:2.0.0'
+   // implementation 'androidx.navigation:navigation-fragment:2.0.0'
+    //implementation 'androidx.navigation:navigation-ui:2.0.0'
+    implementation 'com.ss.bannerslider:bannerslider:2.0.0'
+    implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
