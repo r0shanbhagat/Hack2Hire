@@ -14,6 +14,11 @@ jobs:
 
     working_directory: ~/repo
 
+    build:
+      working_directory: ~/easyhomeloan
+      docker:
+        - image: circleci/android:api-28
+
     environment:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
