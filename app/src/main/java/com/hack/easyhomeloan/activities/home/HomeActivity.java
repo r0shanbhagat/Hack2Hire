@@ -3,10 +3,10 @@ package com.hack.easyhomeloan.activities.home;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -18,15 +18,15 @@ import com.hack.easyhomeloan.activities.home.communication.HomeDataResponse;
 import com.hack.easyhomeloan.activities.home.communication.UserInformation;
 import com.hack.easyhomeloan.activities.home.dialog.FullScreenBannerDialog;
 import com.hack.easyhomeloan.activities.home.viewmodel.HomeViewModel;
-import com.hack.easyhomeloan.base.BaseDialog;
 import com.hack.easyhomeloan.base.BaseResponse;
 import com.hack.easyhomeloan.base.navigation.BaseNavigationDrawerActivity;
-import com.hack.easyhomeloan.base.navigation.menubean.NavigationMenuModel;
 import com.hack.easyhomeloan.databinding.ActivityHomeBinding;
 import com.hack.easyhomeloan.dialog.CustomDialog;
 import com.hack.easyhomeloan.utilities.AppConstant;
 import com.hack.easyhomeloan.utilities.AppUtils;
 import com.hack.easyhomeloan.view.SkeletonScreenView;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,14 +73,13 @@ public class HomeActivity extends BaseNavigationDrawerActivity {
 
     private void showFullBannerDialog() {
         if (AppUtils.isListNotEmpty(dashboardData.getRecommendationBanner())) {
-            FullScreenBannerDialog fullScreenBannerDialog = FullScreenBannerDialog.showDialog(this,
-                    getSupportFragmentManager(), dashboardData.getRecommendationBanner());
-            fullScreenBannerDialog.setOnItemClickListener(new BaseDialog.IDialogClick<NavigationMenuModel>() {
-                @Override
-                public void dialogMessageCallback(View view, NavigationMenuModel notificationItemModel, int requestCode) {
-
-                }
-            });
+            final FullScreenBannerDialog fragment = new FullScreenBannerDialog();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(FullScreenBannerDialog.KEY_URL, Parcels.wrap(dashboardData.getRecommendationBanner()));
+            fragment.setArguments(bundle);
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.add(fragment, TAG);
+            ft.commitAllowingStateLoss();
         }
     }
 

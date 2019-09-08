@@ -1,21 +1,16 @@
 package com.hack.easyhomeloan.activities.home.dialog;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.databinding.ViewDataBinding;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.bumptech.glide.load.engine.GlideException;
 import com.hack.easyhomeloan.R;
 import com.hack.easyhomeloan.activities.home.communication.BannerData;
 import com.hack.easyhomeloan.activities.listing.ListingActivity;
 import com.hack.easyhomeloan.base.BaseActivity;
 import com.hack.easyhomeloan.base.BaseDialog;
-import com.hack.easyhomeloan.base.navigation.menubean.NavigationMenuModel;
 import com.hack.easyhomeloan.databinding.DialogFullScreenBinding;
 import com.hack.easyhomeloan.utilities.AppUtils;
 
@@ -29,38 +24,6 @@ public class FullScreenBannerDialog extends AbstractBaseFullScreenDialog {
     public static String TAG = FullScreenBannerDialog.class.getSimpleName();
     private List<BannerData> recommendedBannerData;
     private DialogFullScreenBinding binding;
-
-    private BaseDialog.IDialogClick<NavigationMenuModel> clickListener;
-
-    public static FullScreenBannerDialog showDialog(final Context context, final FragmentManager fragmentTransaction,
-                                                    final List<BannerData> recommendedBannerData) {
-        final FullScreenBannerDialog fragment = new FullScreenBannerDialog();
-        BaseActivity.getBaseActivity().runOnUiThread(() ->
-                AppUtils.loadImage(context, recommendedBannerData.get(0).getImageUrl(),
-                        new ImageLoadCallBack() {
-                            @Override
-                            public void onSuccess(Object resource) {
-                                Bundle bundle = new Bundle();
-                                bundle.putParcelable(KEY_URL, Parcels.wrap(recommendedBannerData));
-                                fragment.setArguments(bundle);
-                                FragmentTransaction ft = fragmentTransaction.beginTransaction();
-                                ft.add(fragment, TAG);
-                                ft.commitAllowingStateLoss();
-                            }
-
-                            @Override
-                            public void onFailure(GlideException ge) {
-                                AppUtils.showException(ge);
-                            }
-                        }));
-
-        return fragment;
-    }
-
-
-    public void setOnItemClickListener(BaseDialog.IDialogClick<NavigationMenuModel> clickListener) {
-        this.clickListener = clickListener;
-    }
 
     @Override
     protected int getLayoutResourceId() {
