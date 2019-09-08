@@ -1,8 +1,12 @@
 package com.hack.easyhomeloan.activities.login;
 
 
+import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MotionEvent;
+import android.view.View;
 
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
@@ -46,17 +50,29 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void observeClicks() {
-        loginVM.viewClick.observe(this, new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer id) {
-                if (id == R.id.btnLogin) {
-                    if (isValidateData()) {
-                        loginVM.doCheckEligibility(loginVM.userId.toString());
-                    }
+        setSmoothScroll();
+        loginVM.viewClick.observe(this, (Observer<Integer>) id -> {
+            if (id == R.id.btnLogin) {
+                if (isValidateData()) {
+                    loginVM.doCheckEligibility(loginVM.userId.toString());
                 }
             }
         });
 
+
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private void setSmoothScroll() {
+        mBinding.etUserName.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                ObjectAnimator animator = ObjectAnimator.ofInt(mBinding.scrollView, "scrollY", 250);
+                animator.setDuration(750);
+                animator.start();
+                return false;
+            }
+        });
     }
 
     private void observeApiResponse() {

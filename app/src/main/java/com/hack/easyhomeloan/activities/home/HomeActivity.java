@@ -120,8 +120,9 @@ public class HomeActivity extends BaseNavigationDrawerActivity {
                     if (null != ((BaseResponse) response).status.getStatusMessage()) {
                         new CustomDialog.Builder(HomeActivity.this)
                                 .setDialogTitle("Heads Up!")
+                                .setCancelText("OK")
                                 .setMessageText(((BaseResponse) response).status.getStatusMessage())
-                                .build();
+                                .build().show();
                     }
                 }
                 mViewModel.apiResponse.setValue(null);
