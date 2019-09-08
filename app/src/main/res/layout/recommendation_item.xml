@@ -8,21 +8,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/blurhouse" />
+        android:src="@mipmap/blurhouse" />
 
     <LinearLayout
         android:id="@+id/llParent1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_above="@id/llParent2"
         android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="right"
             android:text="Property Name : "
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/normal_text"
             android:textStyle="bold" />
 
@@ -31,8 +33,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:text="N/A"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/normal_text"
             android:textStyle="bold" />
     </LinearLayout>
@@ -41,7 +44,7 @@
         android:id="@+id/llParent2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llParent1"
+        android:layout_above="@+id/llParent3"
         android:layout_marginTop="@dimen/dimen_seven"
         android:gravity="center">
 
@@ -49,8 +52,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="right"
             android:text="Property Value : "
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/normal_text"
             android:textStyle="bold" />
 
@@ -59,8 +64,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:text="N/A"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/normal_text"
             android:textStyle="bold" />
     </LinearLayout>
@@ -69,7 +75,7 @@
         android:id="@+id/llParent3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llParent2"
+        android:layout_above="@+id/tvClickMore"
         android:layout_marginTop="@dimen/dimen_seven"
         android:gravity="center">
 
@@ -77,8 +83,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="right"
             android:text="Property Region: "
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/normal_text"
             android:textStyle="bold" />
 
@@ -87,16 +95,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:text="N/A"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/normal_text"
             android:textStyle="bold" />
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tvClickMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llParent3"
+        android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:padding="@dimen/dimen_ten"
         android:text="@string/click_here_for_more_details"

@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 public interface ApiService {
 
     @GET("marvel")
-    Observable<HomeDataResponse> checkEligibility(@Query("userId") String userId);
+    Observable<HomeDataResponse> checkEligibility(@Query("userId1") String userId);
 
     @GET("marvel1")
     Observable<HomeDataResponse> fetchHomeDashboardData(@Query("userId") String userId);
