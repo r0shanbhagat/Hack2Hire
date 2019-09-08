@@ -15,6 +15,7 @@ import com.hack.easyhomeloan.R;
 import com.hack.easyhomeloan.activities.home.banner.BannerSliderAdapter;
 import com.hack.easyhomeloan.activities.home.communication.BannerData;
 import com.hack.easyhomeloan.activities.home.communication.HomeDataResponse;
+import com.hack.easyhomeloan.activities.home.communication.UserInformation;
 import com.hack.easyhomeloan.activities.home.dialog.FullScreenBannerDialog;
 import com.hack.easyhomeloan.activities.home.viewmodel.HomeViewModel;
 import com.hack.easyhomeloan.base.BaseDialog;
@@ -47,12 +48,12 @@ public class HomeActivity extends BaseNavigationDrawerActivity {
     protected void onCreate(ViewDataBinding viewDataBinding) {
         binding = (ActivityHomeBinding) viewDataBinding;
         mViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
+        binding.setHomeViewModel(mViewModel);
         observeClicks();
         observeApiResponses();
         SkeletonScreenView.show(binding.mainLayout, R.layout.activity_home_skeleton); //uncomment
         intiArgs();
         mViewModel.getHomeDashboardData(userId);
-        showFullBannerDialog();
     }
 
     private void intiArgs() {
@@ -71,23 +72,9 @@ public class HomeActivity extends BaseNavigationDrawerActivity {
 
 
     private void showFullBannerDialog() {
-        if (/*AppUtils.isListNotEmpty(dashboardData.getRecommendationBanner())||*/ true) {
-            List<BannerData> bannerDataList = new ArrayList<>();
-            BannerData bd = new BannerData();
-            bd.setCategoryId("1");
-            bd.setImageUrl("https://assets.materialup.com/uploads/dcc07ea4-845a-463b-b5f0-4696574da5ed/preview.jpg");
-            bannerDataList.add(bd);
-            BannerData bd2 = new BannerData();
-            bd2.setCategoryId("2");
-            bd2.setImageUrl("https://assets.materialup.com/uploads/dcc07ea4-845a-463b-b5f0-4696574da5ed/preview.jpg");
-            bannerDataList.add(bd2);
-
-            BannerData bd3 = new BannerData();
-            bd3.setCategoryId("1");
-            bd3.setImageUrl("https://assets.materialup.com/uploads/dcc07ea4-845a-463b-b5f0-4696574da5ed/preview.jpg");
-            bannerDataList.add(bd3);
+        if (AppUtils.isListNotEmpty(dashboardData.getRecommendationBanner())) {
             FullScreenBannerDialog fullScreenBannerDialog = FullScreenBannerDialog.showDialog(this,
-                    getSupportFragmentManager(), bannerDataList /*dashboardData.getRecommendationBanner()*/);
+                    getSupportFragmentManager(), dashboardData.getRecommendationBanner());
             fullScreenBannerDialog.setOnItemClickListener(new BaseDialog.IDialogClick<NavigationMenuModel>() {
                 @Override
                 public void dialogMessageCallback(View view, NavigationMenuModel notificationItemModel, int requestCode) {
@@ -109,8 +96,11 @@ public class HomeActivity extends BaseNavigationDrawerActivity {
     private void observeApiResponses() {
         mViewModel.apiResponse.observe(this, response -> {
             if (response instanceof Throwable) {
-                AppUtils.showToastMessage(this, getString(R.string.error_msg));
-                mViewModel.apiResponse.setValue(null);
+                // AppUtils.showToastMessage(this, getString(R.string.error_msg));
+                SkeletonScreenView.hide();
+                dashboardData = getMockData();
+                setupDataBoardView();
+                //    mViewModel.apiResponse.setValue(null);
             } else if (response instanceof HomeDataResponse) {
                 if (((HomeDataResponse) response).getStatus().getStatusCode() == AppConstant.SUCCESS_STATUS_CODE) {
                     //show Banner,DEsc,popUp
@@ -125,10 +115,62 @@ public class HomeActivity extends BaseNavigationDrawerActivity {
                                 .build().show();
                     }
                 }
-                mViewModel.apiResponse.setValue(null);
+                //  mViewModel.apiResponse.setValue(null);
             }
 
         });
+    }
+
+
+    private HomeDataResponse getMockData() {
+        HomeDataResponse homeDataResponse = new HomeDataResponse();
+        List<String> topBannerList = new ArrayList<>();
+        topBannerList.add("https://www.buyrentkenya.com/uploadedfiles/ed/5d/ae/ed5daec1-c0fc-4959-9640-97fac7c7f274.jpg");
+        topBannerList.add("https://jainhousing.com/wp-content/uploads/2018/03/plam-medows-1024-non-offer.jpg");
+        topBannerList.add("https://www.bankbazaar.com/images/india/infographic/Mobile-CT-banner-finance-mobile-1-img.gif");
+        topBannerList.add("https://www.advertgallery.com/wp-content/uploads/2017/10/golden-nest-festival-offer-2bhk-flats-starting-from-rs-40-lac-ad-pune-times-06-10-2017.jpg");
+        topBannerList.add("https://i.ytimg.com/vi/etvTly-VVH8/maxresdefault.jpg");
+        topBannerList.add("https://hungamadeal.co.in/wp-content/uploads/2018/06/other-1.png");
+
+        UserInformation userInformation = new UserInformation();
+        userInformation.setName("Prem Rama Kathupally");
+        userInformation.setAddress("TNGOS,Telangana Colony,Gachibowli");
+        userInformation.setGender("Male");
+        userInformation.setCustomerId(userId);
+
+        List<BannerData> bannerDataList = new ArrayList<>();
+        BannerData bannerData = new BannerData();
+        bannerData.setCategoryId("1");
+        bannerData.setCategoryName("2 BHK Flat");
+        bannerData.setCategoryValue(getString(R.string.rupeeSymbol) + " 7,000,000");
+        bannerData.setRegion("Madhopur");
+        bannerDataList.add(bannerData);
+
+        BannerData bannerData2 = new BannerData();
+        bannerData2.setCategoryId("2");
+        bannerData2.setCategoryName("Independent House");
+        bannerData2.setCategoryValue(getString(R.string.rupeeSymbol) + " 8,500,000");
+        bannerData2.setRegion("Secunderabad");
+        bannerDataList.add(bannerData2);
+
+        BannerData bannerData3 = new BannerData();
+        bannerData3.setCategoryId("3");
+        bannerData3.setCategoryName("Villa");
+        bannerData3.setCategoryValue(getString(R.string.rupeeSymbol) + " 10,000,000");
+        bannerData3.setRegion("Botanical Garden");
+        bannerDataList.add(bannerData3);
+
+        BannerData bannerData4 = new BannerData();
+        bannerData4.setCategoryId("4");
+        bannerData4.setCategoryName("1 BHK Flat");
+        bannerData4.setCategoryValue(getString(R.string.rupeeSymbol) + " 50,000,00");
+        bannerData4.setRegion("Mipur");
+        bannerDataList.add(bannerData4);
+
+        homeDataResponse.setTopBanner(topBannerList);
+        homeDataResponse.setUserInformation(userInformation);
+        homeDataResponse.setRecommendationBanner(bannerDataList);
+        return homeDataResponse;
     }
 
     private void setupDataBoardView() {

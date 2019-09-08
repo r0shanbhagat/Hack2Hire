@@ -73,7 +73,7 @@
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cvDetails"
                         style="@style/CardViewStyle"
-                        android:layout_marginTop="@dimen/dimen_eight"
+                        android:layout_marginTop="@dimen/dimen_five"
                         app:cardCornerRadius="@dimen/dimen_ten"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">

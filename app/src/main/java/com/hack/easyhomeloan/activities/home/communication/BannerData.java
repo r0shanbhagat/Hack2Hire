@@ -14,6 +14,24 @@ public class BannerData {
     @SerializedName("categoryId")
     @Expose
     private String categoryId;
+    private String categoryValue;
+    private String region;
+
+    public String getCategoryValue() {
+        return categoryValue;
+    }
+
+    public void setCategoryValue(String categoryValue) {
+        this.categoryValue = categoryValue;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
 
     public String getImageUrl() {
         return imageUrl;

@@ -19,8 +19,10 @@ import com.hack.easyhomeloan.base.BaseActivity;
 import com.hack.easyhomeloan.base.BaseResponse;
 import com.hack.easyhomeloan.databinding.ActivityLoginBinding;
 import com.hack.easyhomeloan.dialog.CustomDialog;
+import com.hack.easyhomeloan.dialog.LoadingDialog;
 import com.hack.easyhomeloan.utilities.AppConstant;
 import com.hack.easyhomeloan.utilities.AppUtils;
+import com.hack.easyhomeloan.utilities.HideUtility;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -54,6 +56,8 @@ public class LoginActivity extends BaseActivity {
         loginVM.viewClick.observe(this, (Observer<Integer>) id -> {
             if (id == R.id.btnLogin) {
                 if (isValidateData()) {
+                    HideUtility.hideSoftInput(this);
+                    LoadingDialog.show(this);
                     loginVM.doCheckEligibility(loginVM.userId.toString());
                 }
             }
@@ -79,6 +83,7 @@ public class LoginActivity extends BaseActivity {
         loginVM.apiResponse.observe(this, new Observer() {
             @Override
             public void onChanged(Object response) {
+                LoadingDialog.dismissDialog();
                 if (response instanceof BaseResponse) {
                     if (((BaseResponse) response).status.getStatusCode() == AppConstant.SUCCESS_STATUS_CODE) {
                         navigateToDashboard();
@@ -91,8 +96,10 @@ public class LoginActivity extends BaseActivity {
 
                     loginVM.apiResponse.setValue(null);
                 } else if (response instanceof Throwable) {
-                    AppUtils.showToastMessage(LoginActivity.this, getString(R.string.error_msg));
+                    // AppUtils.showToastMessage(LoginActivity.this, getString(R.string.error_msg));
+                    navigateToDashboard();
                     loginVM.apiResponse.setValue(null);
+
                 }
             }
         });

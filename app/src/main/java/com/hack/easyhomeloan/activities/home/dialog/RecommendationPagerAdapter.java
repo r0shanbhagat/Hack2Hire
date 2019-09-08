@@ -47,7 +47,11 @@ public class RecommendationPagerAdapter extends PagerAdapter {
 
         ImageView imageView = itemView.findViewById(R.id.imageView);
         TextView tvPropertyName = itemView.findViewById(R.id.tvPropertyName);
+        TextView tvPropertyValue = itemView.findViewById(R.id.tvPropertyValue);
+        TextView tvPropertyVRegion = itemView.findViewById(R.id.tvPropertyVRegion);
         tvPropertyName.setText(bannerData.getCategoryName());
+        tvPropertyValue.setText(bannerData.getCategoryValue());
+        tvPropertyVRegion.setText(bannerData.getRegion());
         container.addView(itemView);
         //listening to image click
         imageView.setOnClickListener(new View.OnClickListener() {
