@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.databinding.ViewDataBinding;
@@ -45,7 +44,6 @@ public class ListingActivity extends BaseActivity implements HomeListAdapter.Pro
         setType();
         intiArgs();
         setAdapterType();
-        initProducts();
         clickBackArrow();
         clickPayment();
         setProductAdapter();
@@ -107,11 +105,13 @@ public class ListingActivity extends BaseActivity implements HomeListAdapter.Pro
             @Override
             public void onClick(View view) {
                 if (homeItems.size() != 0) {
-                    Toast.makeText(ListingActivity.this, "Payment", Toast.LENGTH_LONG).show();
+
+                    // Toast.makeText(ListingActivity.this, "Payment", Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
+
 
     private void clickBackArrow() {
         backArrow.setOnClickListener(new View.OnClickListener() {
@@ -145,27 +145,6 @@ public class ListingActivity extends BaseActivity implements HomeListAdapter.Pro
         }
     }
 
-    private void initProducts() {
-        homeItems = new ArrayList<>();
-        homeItems.add(new HomeItem(11, "2 BHK", getString(R.string.item_1), R.drawable.flat_one, 4500000, 11));
-        homeItems.add(new HomeItem(12, "3 BHK", getString(R.string.item_2), R.drawable.flat_2, 800000, 10));
-        homeItems.add(new HomeItem(13, "3 BHK Villa", getString(R.string.item_3), R.drawable.flat_3, 9510000, 9.5f));
-        homeItems.add(new HomeItem(14, "Independent Home", getString(R.string.item_4), R.drawable.flat_4, 650000, 11.2f));
-
-        homeItems.add(new HomeItem(15, "3 BHK", getString(R.string.item_1), R.drawable.flat_one, 9510000, 6));
-        homeItems.add(new HomeItem(16, "2 BHK", getString(R.string.item_2), R.drawable.flat_2, 650000, 7.7f));
-        homeItems.add(new HomeItem(17, "1 BHK", getString(R.string.item_3), R.drawable.flat_3, 9510000, 8.2f));
-        homeItems.add(new HomeItem(18, "Independent Home", getString(R.string.item_4), R.drawable.flat_4, 9100000, 8.15f));
-
-        homeItems.add(new HomeItem(15, "Independent Home", getString(R.string.item_1), R.drawable.flat_one, 9510000, 9.5f));
-        homeItems.add(new HomeItem(16, "3 BHK", getString(R.string.item_2), R.drawable.flat_2, 650000, 9.9f));
-        homeItems.add(new HomeItem(17, "Villa", getString(R.string.item_3), R.drawable.flat_3, 1420000, 7));
-        homeItems.add(new HomeItem(18, "2 BHK", getString(R.string.item_4), R.drawable.flat_4, 4500000, 15.6f));
-
-        setHomeListCount(homeItems.size());
-        caliculatePrices();
-        paymentButtonStyle();
-    }
 
     @Override
     public void DataRefresh(boolean isRefresh) {
