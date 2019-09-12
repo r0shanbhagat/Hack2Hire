@@ -1,0 +1,55 @@
+version: 2
+
+restore_cache: &restore_cache
+  restore_cache:
+    keys:
+      - jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - builds-{{ .Revision }}
+      - app-builds-{{ .Revision }}
+jobs:
+  build:
+    working_directory: ~/easyhomeloan
+    docker:
+      - image: circleci/android:api-29
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - *restore_cache
+      - run:
+          name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
+          command: sudo chmod +x ./gradlew
+      - run:
+          name: Download Dependencies
+          command: ./gradlew dependencies
+      - run:
+          name: Build
+          command: ./gradlew assembleDebug
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - save_cache:
+          paths:
+            - ~/easyhomeloan/build
+          key: builds-{{ .Revision }}
+      - save_cache:
+          paths:
+            - ~/easyhomeloan/app/build
+          key: app-builds-{{ .Revision }}
+
+#  test:
+#    working_directory: ~/easyhomeloan
+#    docker:
+#      - image: circleci/android:api-29
+#    environment:
+#      JVM_OPTS: -Xmx3200m
+#    steps:
+#      - checkout
+#      - *restore_cache
+#      - run:
+#          name: Run Tests
+#          command: ./gradlew jacoco
+
+
+
