@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnGraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimen_seven"
+            android:background="@color/colorRed"
+            android:text="@string/graph_chart"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btnGraph"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/ToolBarBaseTheme"
+                app:elevation="0dp"
+                app:layout_scrollFlags="scroll|enterAlways" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentPadding="@dimen/dimen_five">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dimen_two"
+                    android:orientation="vertical">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@color/colorBlack">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight=".15"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text="@string/month"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/normal_text" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight=".25"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text="@string/emi"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/normal_text" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".25"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text="@string/principal"
+
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/normal_text" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".25"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text="@string/interest"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/normal_text" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight=".28"
+                            android:gravity="center_horizontal"
+                            android:text="@string/outstanding"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/normal_text" />
+                    </TableRow>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ListView
+                            android:id="@+id/list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

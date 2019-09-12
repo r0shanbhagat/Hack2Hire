@@ -1,6 +1,7 @@
 package com.hack.easyhomeloan.activities.listing.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hack.easyhomeloan.R;
+import com.hack.easyhomeloan.activities.detail.DetailActivity;
 import com.hack.easyhomeloan.activities.listing.model.HomeItem;
 import com.hack.easyhomeloan.activities.listing.viewholder.ProductViewHolder;
+import com.hack.easyhomeloan.base.BaseActivity;
+import com.hack.easyhomeloan.utilities.AppUtils;
 
 import java.util.ArrayList;
 
@@ -71,10 +75,23 @@ public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                navigateToDashboard();
                 Toast.makeText(context, "Item click: " + id, Toast.LENGTH_LONG).show();
             }
         });
     }
+
+    private void navigateToDashboard() {
+        Bundle bundleArgs = new Bundle();
+        //bundleArgs.putString(HomeActivity.KEY_USER_ID, Objects.requireNonNull(loginVM.userId.get()).toString());
+        AppUtils.navigateToActivity(
+                BaseActivity.getBaseActivity(),
+                DetailActivity.class,
+                bundleArgs,
+                true
+        );
+    }
+
 
     private void setOnClickCancel(RelativeLayout relativeLayout, final int position) {
         relativeLayout.setOnClickListener(new View.OnClickListener() {

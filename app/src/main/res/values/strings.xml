@@ -55,6 +55,22 @@
     <string name="text_4">For Studying in India, USA, Abroad 100%Finance, Fast Door Step Service. Dedicated Education Loan. Live Chat Available. Apply For A Loan. Provider. Destinations: Study in USA, Study in Germany, Study in Canada, Study Australia.</string>
     <string name="click_here_for_more_details"><u>Click here for More Details</u></string>
     <string name="rupeeSymbol">\u20B9</string>
+    <string name="loan_amount">Loan Amount</string>
+    <string name="roi">Rate of Interest(%)</string>
+    <string name="tenure">Tenure (Months)</string>
+    <string name="calculate">calculate</string>
+    <string name="emi_month">emi/Month</string>
+    <string name="amort_chart">Amortization Chart</string>
+    <string name="graph_chart">Graphical Chart</string>
+    <string name="month">Months</string>
+    <string name="emi">Emi</string>
+    <string name="principal">Principle</string>
+    <string name="interest">Interest</string>
+    <string name="outstanding">Outstanding</string>
+    <string name="zero">0</string>
+    <string name="total_payable_amount">Total Payable Amount</string>
+    <string name="total_principal">Total Principle</string>
+    <string name="total_interest_payable">Total Interest Payable</string>
 
 
 </resources>
